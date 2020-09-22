@@ -7,18 +7,22 @@
 - programm (itself)
 - grading (8 individual work, practice)
 - shallow introduction to each topic
+- what you'll get after complition
+- what you need
 
 ### class 2.2 Quantitative vs Qualitative
-- Why do we need "methods"
+- Why do we need "methods". Scientific explanation.
 - Qualitative
 - Quantitative
-- Examples, where you can apply it (Pharma, IT, oil producing enterprises. Spoiler - everywhere)
+- Examples, where you can apply it (Pharma, IT, oil producing enterprises, HR. Spoiler - everywhere)
 - How it can be applyed, A/B tests 
-- 
+- How it related to probability and statistics. 
+- A little bit about data-driven approach.
 
 ### class 3.2
+- individual work Logic and math problem with small recap. 
 
-## week 2
+## week 2 
 
 ### class 2.1
 
