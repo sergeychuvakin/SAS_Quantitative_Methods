@@ -22,7 +22,7 @@
 ### class 1.3
 - individual work Logic and math problem with small recap. 
 
-## week 2 Key statistical concepts
+## week 2 R language
 
 ### class 2.1
 
@@ -30,7 +30,7 @@
 
 ### class 2.3
 
-## week 3 R language
+## week 3 Key statistical concepts  
 
 ### class 3.1
 
