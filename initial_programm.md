@@ -10,7 +10,6 @@
 - what you'll get after complition
 - what you need
 
-
 Quantitative vs Qualitative<br>
 
 - Why do we need "methods". Scientific explanation.
@@ -21,7 +20,7 @@ Quantitative vs Qualitative<br>
 - How it related to probability and statistics. 
 - A little bit about data-driven approach.
 
-### class 2.2 
+### class 1.2 
 
 - basics of probability 
 - basics of culculus 
@@ -43,37 +42,55 @@ Quantitative vs Qualitative<br>
 
 ## week 3 Key statistical concepts  
 
-### class 3.1 mean, mode, median, types of variable 
+### class 3.1 mean, mode, median, types of variable, correlation, covariation
 
 ### class 3.2 standart errors, statndart deviations, practice in R
 
-### class 3.3
+### class 3.3 assigment in R
 
 ## week 4 Data managment, preprocessing, vizualization 
 
-### class 4.1 dplyr
+### class 4.1 
+- basic steps
+- dplyr
+- pivot 
+
 
 ### class 4.2 ggplot 
 
-### class 4.3 practice
+### class 4.3 practice assigment
 
 ## week 5 Basic statistical tests 
 
-### class 5.1 Comparing two means
+### class 5.1 Comparing two means, 
+- significance 
+- p-value 
+- box-plots
+- hypothesis
+- Degrees of freedom
+- Shapiro-Wilk test (normality of distribution)
+### class 5.2 
+-f-tests (two variances dispersions)
+- dependent tests 
+- Wilcoxon (man-witney U) (for dependent and independent)
+- ANOVA
 
-### class 5.2
+### class 5.3 Practice R
 
-### class 5.3
+## week 6 Regression
 
-## week 6
+### class 6.1 basics 
+- assumtions 
 
-### class 6.1
+### class 6.2 
+- standart error
+- t-value
+- degerees of freedom
+- p-value
 
-### class 6.2
+### class 6.3 R-practice
 
-### class 6.3
-
-## week 7
+## week 7 Regression advanced
 
 ### class 7.1 
 
@@ -83,8 +100,10 @@ Quantitative vs Qualitative<br>
 
 ## week 8
 
-### class 8.1 Design, methodology
+### class 8.1 Design, methodology, a/b tests 
 
-### class 8.2
+### class 8.2 examples
 
-### class 8.3
+### class 8.3 write own design with all research 
+- student will have different scenarious
+- final exam  - it's home assigmment embody own design
