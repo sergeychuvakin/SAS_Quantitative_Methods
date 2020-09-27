@@ -10,7 +10,9 @@
 - what you'll get after complition
 - what you need
 
-### class 2.2 Quantitative vs Qualitative
+
+Quantitative vs Qualitative<br>
+
 - Why do we need "methods". Scientific explanation.
 - Qualitative
 - Quantitative
@@ -19,8 +21,17 @@
 - How it related to probability and statistics. 
 - A little bit about data-driven approach.
 
+### class 2.2 
+
+- basics of probability 
+- basics of culculus 
+- what is vectors 
+- what is features 
+- what is matrices
+- how to transpose it to social sciences 
 ### class 1.3
-- individual work Logic and math problem with small recap. 
+- individual work Logic and math problem with small recap.
+- assigment for probability 
 
 ## week 2 R language
 
@@ -28,13 +39,13 @@
 
 ### class 2.2
 
-### class 2.3
+### class 2.3 pRactice
 
 ## week 3 Key statistical concepts  
 
-### class 3.1
+### class 3.1 mean, mode, median, types of variable 
 
-### class 3.2
+### class 3.2 standart errors, statndart deviations, practice in R
 
 ### class 3.3
 
@@ -44,11 +55,11 @@
 
 ### class 4.2 ggplot 
 
-### class 4.3
+### class 4.3 practice
 
-## week 5 
+## week 5 Basic statistical tests 
 
-### class 5.1
+### class 5.1 Comparing two means
 
 ### class 5.2
 
@@ -64,7 +75,7 @@
 
 ## week 7
 
-### class 7.1
+### class 7.1 
 
 ### class 7.2
 
@@ -72,7 +83,7 @@
 
 ## week 8
 
-### class 8.1
+### class 8.1 Design, methodology
 
 ### class 8.2
 
