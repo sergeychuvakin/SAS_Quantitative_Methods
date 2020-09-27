@@ -19,10 +19,10 @@
 - How it related to probability and statistics. 
 - A little bit about data-driven approach.
 
-### class 3.2
+### class 1.3
 - individual work Logic and math problem with small recap. 
 
-## week 2 
+## week 2 Key statistical concepts
 
 ### class 2.1
 
@@ -30,7 +30,7 @@
 
 ### class 2.3
 
-## week 3
+## week 3 R language
 
 ### class 3.1
 
@@ -38,15 +38,15 @@
 
 ### class 3.3
 
-## week 4
+## week 4 Data managment, preprocessing, vizualization 
 
-### class 4.1
+### class 4.1 dplyr
 
-### class 4.2
+### class 4.2 ggplot 
 
 ### class 4.3
 
-## week 5
+## week 5 
 
 ### class 5.1
 
