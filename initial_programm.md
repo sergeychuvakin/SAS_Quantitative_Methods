@@ -42,9 +42,17 @@ Quantitative vs Qualitative<br>
 
 ## week 3 Key statistical concepts  
 
-### class 3.1 mean, mode, median, types of variable, correlation, covariation
+### class 3.1 - Central measures
+- mean 
+- mode 
+- median 
+- types of variable
 
-### class 3.2 standart errors, statndart deviations, practice in R
+### class 3.2 Distribution 
+- Distributions and why it's important for statistics 
+- standart errors
+- statndart deviations 
+- practice in R
 
 ### class 3.3 assigment in R
 
@@ -56,13 +64,17 @@ Quantitative vs Qualitative<br>
 - pivot 
 
 
-### class 4.2 ggplot 
+### class 4.2 Visualizition
+- types of vizualizition
+- some rules of vizualization, bad habits to avoid
+- ggplot basics
+
 
 ### class 4.3 practice assigment
 
 ## week 5 Basic statistical tests 
 
-### class 5.1 Comparing two means, 
+### class 5.1 Comparing two means (really hard one)
 - significance 
 - p-value 
 - box-plots
@@ -74,29 +86,44 @@ Quantitative vs Qualitative<br>
 - dependent tests 
 - Wilcoxon (man-witney U) (for dependent and independent)
 - ANOVA
+- Binomial test
+- Chi-squared test
 
-### class 5.3 Practice R
+### class 5.3 Correlation
+- correlation, covariation 
+- kendal, spirman
 
 ## week 6 Regression
 
 ### class 6.1 basics 
-- assumtions 
+- assumtions
+- formula
+- SGD
+- what is slope and $\b$ coefficients
 
 ### class 6.2 
 - standart error
 - t-value
 - degerees of freedom
 - p-value
+- type of error
+- z -score
 
 ### class 6.3 R-practice
 
 ## week 7 Regression advanced
 
-### class 7.1 
+### class 7.1 post hoc tests - Diagnostics
+- homogemity / heteroscedacity
+- multicolleniarity
+- check normality of variables
+- type of errors
 
-### class 7.2
-
-### class 7.3
+### class 7.2 GLM
+- logit (remind about probit, tobit)
+- poisson 
+- 
+### class 7.3 pRactice in R
 
 ## week 8
 
