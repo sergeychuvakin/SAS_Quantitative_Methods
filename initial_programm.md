@@ -43,6 +43,7 @@ Quantitative vs Qualitative<br>
 ## week 3 Key statistical concepts  
 
 ### class 3.1 - Central measures
+- what is sample, what is population, referning tha last lection.
 - mean 
 - mode 
 - median 
