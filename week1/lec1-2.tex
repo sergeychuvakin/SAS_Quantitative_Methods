@@ -1,0 +1,243 @@
+
+\documentclass[t, 11pt]{beamer}
+\pdfmapfile{+sansmathaccent.map}
+%%% Работа с русским языком
+\usepackage{cmap}				
+\usepackage{mathtext} 				
+\usepackage[T2A]{fontenc}		
+\usepackage[utf8]{inputenc}			
+\usepackage[russian, english]{babel}	
+
+\usetheme{Montpellier}
+\usecolortheme{beaver} % Цветовая схема
+
+
+
+%%% Работа с картинками
+\usepackage{graphicx}
+
+\usepackage{csquotes}
+
+\hypersetup{				
+	colorlinks=true,       	
+	linkcolor=blue,          
+	citecolor=black,       
+	filecolor=magenta,      
+	urlcolor=red           
+}
+%% табличка
+\usepackage{booktabs, caption, makecell}
+\usepackage{threeparttable}
+
+
+\title{Intro to Quantitative methods}
+\subtitle{...and it's applications}
+\author{Chuvakin Sergey}
+\date{\today}
+\institute[<<Anthropology>>]{<<School of Advanced Studies>>}
+
+\begin{document}
+	
+	\frame[plain]{\titlepage}
+	\section{lection 1 Intro to Course}
+	
+	
+	\subsection{Welcome}
+	\begin{frame} \label {welcome}
+		\frametitle{\insertsection} 
+		\frametitle{\insertsubsection} 
+		\begin{itemize}
+			\item \textbf{About me:} Data Scientist in Arcaidia inc. (SPb), mostly worked with pharma companies. Former sociologist with focus on criminology. 
+			\item \textbf{My interests:} Business and Research Analytics, Natural Language Processing, Python, Digital Humanities, Robotics
+			\item \textbf{Feel free to contact me:} \begin{itemize}
+			    \item Email: sergeychuvakin1@mail.ru
+			    \item telegram: @sergechuvakin
+			\end{itemize}
+			\item \textbf{Office hours:} TBA
+		\end{itemize}
+	\end{frame}
+
+\subsection{Qauntitative methods}
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{\insertsubsection}
+	
+\textbf{Qauntitative methods} -- is a set of rules and algorithmes to reach stable, sustained results of reasearch. 
+
+\textbf{Research} -- common term for defining procedure of finding answer on question.
+
+\end{frame}
+
+
+
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{\insertsubsection}
+	
+		After completing this course, you will be able: 
+		\begin{itemize}
+			\item to read and understand (sic!) quantitative research papers 
+			\item to speak the language of data fluently
+			\item move further to Data Science and Machine Learning 
+			\item able to understand and explain to others such words as ”variable”, ”distribution”, ”regression”, ”p-value”, etc.
+			\item able to choose statistical methods appropriate to your research problem 
+			\item use R for your programming needs
+		\end{itemize}
+\end{frame}
+
+	
+	\subsection{Course Structure} \label{}
+	\begin{frame}
+		\frametitle{\insertsection}
+		\frametitle{\insertsubsection}  
+	\begin{itemize}
+    \item Week 1 - Intro *
+ 	\item Week 2 - R Language *
+	\item Week 3 - Key statistical concepts *
+	\item Week 4 - Data Management * 
+    \item Week 5 - Basic statistical tests **
+    \item Week 6 - Regression * 
+    \item Week 7 - Regression advanced
+    \item Week 8 - Methodology of Quantitative research * (**)
+ \end{itemize}
+ \vspace{1cm}
+ * -- Quizzes
+ 
+ ** -- Home Assignment
+\end{frame}
+
+	\begin{frame}
+	\frametitle{\insertsection}
+	\frametitle{Prerequisites}  
+	\begin{itemize}
+	
+		\item Math (at least school level)
+		\item Calculus (basics) (recap today)
+		\item Linear Algebra (basics) (recap today)
+		\item Computer literacy 
+		
+	\end{itemize}
+\end{frame}
+
+
+	\subsection{Grading}
+
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{Major  (approximate)}
+\begin{table}[]
+	\begin{threeparttable}
+	\begin{tabular}{@{}lll@{}}
+		\toprule
+		\textbf{Assignment or Task}   & \textbf{Due date/s} & \textbf{Percent} \\ \midrule
+		Recap of math and Probability & 22 November         & 8       \\
+		R language practice           & 29 November         & 8      \\
+		Data management practice      & 13 December         & 8                \\
+		Regression practice           & 27 December         & 8                \\
+		1 Home assignment             & 11 January          & 30               \\
+		Design research               & 20 January          & 8                \\
+		2 Home assignment             & 20 January          & 30               \\ \bottomrule
+%		* - it's not end version, there can be small that be announced before.  && 
+	\end{tabular}
+	\begin{tablenotes}\footnotesize
+		\item[*]  it's not the end version, small changes can be (TBA)
+	\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+\end{frame}
+
+	
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{Minor  (approximate)}
+	\begin{table}[]
+		\begin{threeparttable}
+			\begin{tabular}{@{}lll@{}}
+				\toprule
+				\textbf{Assignment or Task}   & \textbf{Due date/s} & \textbf{Percent} \\ \midrule
+				Recap of math and Probability & 22 November         & 15      \\
+				R language practice           & 29 November         & 15      \\
+				Data management practice      & 13 December         & 15                \\
+				Regression practice           & 27 December         & 15                \\
+				1 Home assignment             & 11 January          & 25               \\
+				Design research               & 20 January          & 15                \\
+			\end{tabular}
+			\begin{tablenotes}\footnotesize
+				\item[*]  it's not the end version, small changes can be (TBA)
+			\end{tablenotes}
+		\end{threeparttable}
+	\end{table}
+\end{frame}
+
+
+	
+	\subsection{Reading}
+	\begin{frame}\label{}
+		\frametitle{\insertsection}
+		\frametitle{\insertsubsection}
+		\begin{itemize}
+			\item Field A., J. Miles, and Z. Field. 2012.Discovering StatisticsUsing R. SAGE publications ltd
+			\item Wickham, H., and Grolemund, G. 2016.R for data science.O’Reilly Media
+		\end{itemize}
+	\end{frame}
+
+		\subsection{Sofware}
+	\begin{frame}\label{}
+		\frametitle{\insertsection}
+		\frametitle{\insertsubsection}
+		\begin{itemize}
+			\item \href{https://www.r-project.org/}{R}
+			\item \href{https://www.rstudio.com/products/rstudio/}{Rstudio}
+			\item \href{https://github.com/sergeychuvakin/SAS_Quantitative_Methods/}{GitHub}
+		\end{itemize}
+	\end{frame}
+
+
+\subsection{Intro}
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Course introduction 
+		\item Calculus and linear algebra recap
+		\item quizzes 
+	\end{itemize}
+\end{frame}	
+
+\subsection{R Language}
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{\insertsubsection}
+	
+\textbf{R} -- general purpose programming language. We will practice:
+\begin{itemize}
+	\item writing a good readable code
+	\item use basic built-in functions 
+	\item modify  and create data tables
+	\item prepare data to analysis
+	\item use statstistical functions
+	\item run models and diagnostics 
+	\item vizulize data and models
+	\item use RMarkdown extension
+	\item a lot of other activities 
+\end{itemize}	  
+\end{frame}	
+
+\subsection{Key statistical concepts}
+\begin{frame}\label{}
+	\frametitle{\insertsection}
+	\frametitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item what is variable
+		\item types of variables
+		\item sample and population
+		\item representativity 
+		\item central measures
+		\item distributions 
+		\item standart deviation
+	\end{itemize}	  
+\end{frame}	
+	
+\end{document}
