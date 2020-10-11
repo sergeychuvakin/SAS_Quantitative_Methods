@@ -123,7 +123,7 @@ Quantitative vs Qualitative<br>
 ### class 7.2 GLM (lection)
 - logit (remind about probit, tobit)
 - poisson 
-- 
+- negative binomial regression
 ### class 7.3 pRactice in R (seminar)
 
 ## week 8
