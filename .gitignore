@@ -6,3 +6,7 @@
 *.synctex.gz
 *.toc
 *.DS_Store
+*.bbl
+*.bcf
+*.blg
+*.run.xml
