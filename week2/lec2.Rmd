@@ -1,0 +1,346 @@
+---
+title: "R language"
+author: Sergey Chuvakin
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+
+# R advanced structures
+
+## Vectors aka arrays
+
+```{r}
+v <- c(1,2,3,4) ## basically it's a sequence 
+```
+
+```{r}
+class(v)
+```
+
+```{r}
+1:4
+```
+```{r}
+class(1:4) ## dynamic typing
+```
+
+## Vector operations
+
+```{r}
+v + 1
+```
+
+```{r}
+v * 2
+```
+
+```{r}
+a <- c(5,6,7,8)
+a + v
+```
+
+```{r}
+a <- c(5,6,7,8,6)
+a + v
+```
+
+## Vector operations and slices
+
+```{r}
+sum(a) + sum(v)
+```
+
+```{r}
+a[1]
+```
+
+```{r}
+a[3:4]
+```
+
+```{r}
+length(v)
+```
+
+## Vector operations and slices 2
+
+```{r}
+a[length(a)]
+```
+```{r}
+v[c(TRUE,FALSE,TRUE,FALSE)]
+```
+```{r}
+v %% 2
+```
+```{r}
+v[v %% 2 == TRUE]
+```
+## Usefull functions
+
+```{r}
+rep(1, 5)
+```
+
+```{r}
+seq(1, 5)
+```
+
+```{r}
+seq(1, 5, 2)
+```
+
+## Matrices
+
+```{r}
+matrix(1:9, nrow = 3, ncol = 3)
+```
+
+```{r}
+matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+```
+
+## Matrix operations
+
+```{r}
+m <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+dim(m)
+```
+
+```{r}
+nrow(m)
+```
+
+```{r}
+ncol(m)
+```
+
+## Matrix names 
+
+```{r}
+rownames(m)
+```
+```{r}
+rownames(m) <- c('A', 'B', 'C')
+colnames(m) <- c('D', 'E', 'F')
+```
+
+```{r}
+rownames(m)
+```
+
+```{r}
+colnames(m)
+```
+## Matrix names 2
+
+```{r}
+m
+```
+
+```{r}
+dimnames(m)
+```
+
+```{r}
+dimnames(m) <- NULL
+m
+```
+## Matrix sclices
+
+```{r}
+m[2, 3]
+```
+
+```{r}
+m[2, 3] ## roman catholics
+```
+
+```{r}
+m[1:2, 3]
+```
+
+## Why we need names
+
+```{r}
+rownames(m) <- c('A', 'B', 'C')
+colnames(m) <- c('D', 'E', 'F')
+names(v) <- c('a', 'b', 'c', 'd')
+```
+
+```{r}
+v['a']
+```
+```{r}
+v[c('a', 'b')]
+```
+```{r}
+m['A', c('D', 'E')]
+```
+
+## Data Frames - the most important structure for us!
+
+```{r}
+m <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+data.frame(m)
+```
+```{r}
+rownames(m) <- c('A', 'B', 'C')
+colnames(m) <- c('D', 'E', 'F')
+data.frame(m)
+```
+
+## Data Frames another syntax
+
+```{r}
+data.frame(a = c(1,2,3), c = c(4,5,6))
+```
+```{r}
+df <- data.frame(sex = c('Male','Female','Male'), age = c(34,45,16)) ## Example
+df
+```
+## Data Frames operations
+
+```{r}
+df['sex'] ## data frame
+```
+```{r}
+df[['sex']]
+```
+
+## Data Frames slices
+
+```{r}
+df[1,2]
+```
+```{r}
+df[1, 'sex']
+```
+```{r}
+rownames(df) <- c('A', 'B', 'C')
+df['B', 'sex']
+```
+
+## Common data frame operations
+
+```{r}
+dim(df)
+```
+
+```{r}
+nrow(df)
+```
+
+```{r}
+ncol(df)
+```
+
+```{r}
+names(df)
+```
+
+## Common data frame operations
+
+```{r}
+df$age ## vector
+```
+```{r}
+head(df)
+```
+
+```{r}
+tail(df)
+```
+## list
+
+```{r}
+list(string = 'A', int = 1, vector = 1:10, dataFrame = df)
+```
+
+```{r}
+l <- list(string = 'A', int = 1, vector = 1:10, dataFrame = df)
+l[1] ## type list
+```
+
+```{r}
+l <- list(string = 'A', int = 1, vector = 1:10, dataFrame = df)
+l[[1]] ## type string
+```
+
+```{r}
+l <- list(string = 'A', int = 1, vector = 1:10, dataFrame = df)
+l$string ## call by name, type string
+```
+
+## factors
+
+```{r}
+vec <- rep(c('Male', 'Female'), 100)
+fac_vec <- as.factor(vec)
+```
+
+```{r}
+levels(fac_vec)
+```
+
+
+
+## "Handmade" functions
+
+```{r}
+my_foo <- function() {
+  print('Hello SAS')
+}
+```
+
+```{r}
+my_foo()
+```
+
+```{r}
+doubled_sum <- function(x, y) {
+  return((x + y) * 2) 
+}
+```
+
+```{r}
+doubled_sum(5,7)
+```
+
+##  Loops
+
+```{r}
+for (i in 10:20) {
+  print(i)
+}
+```
+
+## Conditions
+
+```{r}
+if (1 == 2) {
+  print('Mad world')
+} else {
+  print('Hello world')
+}
+```
+
+## Conditions and loops
+
+```{r}
+for (i in 1:10) {
+  if (i %% 2 == 0) {
+    print(i)
+  }
+}
+```
+
+# What else??
+
+## Google it!
+
+- strings in R
+- apply, sapply, lapply
+- Name spaces in R
+

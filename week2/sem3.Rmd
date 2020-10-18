@@ -1,0 +1,111 @@
+---
+title: "Practice R language"
+author: "Sergey Chuvakin"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+0) Let’s create the following vectors:
+
+u <- 4
+
+v <- 8
+
+Use the elementary arithmetic operators +, -, *, /, and ^ to:
+
+- add u and v
+- subtract v from u
+- multiply u by v
+- divide u by v
+- raise u to the power of v
+
+```{r}
+### Your code here
+```
+
+
+1) Write a R program to get the first 10 Fibonacci numbers.
+
+```{r}
+### Your code here
+```
+
+2) Write a R program to print the numbers from 1 to 100 and print "Fizz" for multiples of 3, print "Buzz" for multiples of 5, and print "FizzBuzz" for multiples of both
+
+```{r}
+### Your code here
+```
+
+3) Write a R program to create three vectors a,b,c with 3 integers. Combine the three vectors to become a 3×3 matrix where each column represents a vector. Print the content of the matrix
+(HINT: use function cbind, just type ?cbind)
+
+```{r}
+### Your code here
+```
+
+4) Write a function that produce a dot product of two vectors
+
+```{r}
+### Your code here
+```
+
+5) Write a R program to create an empty data frame.
+
+```{r}
+### Your code here
+```
+
+6) Write a function to culculate this equation
+$$n = \frac{ln(\frac{i}{\frac{M}{P} -i} + 1)}{ln(1 + i)}$$
+```{r}
+mortgage_rate <- function(M, P, i) {
+  ### Your code here
+}
+```
+
+7) Distance between cities!
+
+Suppose you have geographical data and want to calculate the distance between two places on earth, given by their latitude and longitude coordinates. Consider the coordinates for:
+
+    Paris: 48.8566° N (latitude), 2.3522° E (longitude), and
+    New York 40.7128° N (latitude), 74.0060° W (longitude)
+
+If you’re up for a real challenge, lookup “Great-circle distance” on Wikipedia, and use the spherical law of cosines to find the distance (and stop reading right now!).
+
+If this sounds like a pretty daunting task, don’t worry! I will walk you through this step-by-step in the remainder of this exercise.
+
+Ok, here we go. We will use the following common abbreviations:
+
+- latitude  $\phi$ (phi)
+- longitude $\lambda$ (lambda)
+
+Create 4 scalars phi.paris, phi.ny, lambda.paris, lambda.ny, representing these coordinates. Because New York is located in the West, you have to enter this as a negative value (-74.0060).
+
+a) Convert the 4 coordinates from degrees to radians, using the formula:
+$$radians = degrees \times \frac{\pi}{180}$$
+b) Calculate the central angle between both cities, using the spherical law of cosines:
+$$\Delta\sigma = arccos(sin\phi_1\times\sin\phi_2 + cos\phi_1\times\cos\phi_2cos(\Delta\lambda))$$
+where: $\Delta\sigma$  is just a scalar (name it anything you want in R),
+$\phi_1$ is the latitude of Paris,
+$\phi_2$ the latitude of New York, and $\Delta\lambda$
+the absolute difference between both longitudes.Hint: For this calculation you need the following mathematical functions in R: sin, cos, acos, and abs.
+c) Finally, to find the distance, multiply $\Delta\sigma$ 
+(i.e., the outcome you just calculated) by the radius of the earth (6371 km.)
+
+```{r}
+### Your code here
+```
+8) Write a function that reverse any words, i.g. 
+ - input: cat
+ - output: tac
+ 
+ HINT: use functions - rev, strsplit <br>
+ HINT2: use '' as separator in strsplit
+ 
+```{r}
+### Your code here
+```

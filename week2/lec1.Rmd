@@ -1,0 +1,161 @@
+---
+title: "R language"
+author: Sergey Chuvakin
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+# Basics
+
+## Why R
+
+- R full programming language
+- Free!
+- General purpose 
+- Supports multiple paradigms (we will get acquainted with functional and objective)
+
+## Input and output
+
+```{r}
+1 ## output below
+```
+
+```{r}
+print(1) ## some functions do not change output
+```
+
+```{r}
+cat(1) ## some functions do 
+```
+
+```{r}
+cat ## callable functions 
+```
+
+## R as calculator
+
+```{r}
+1 + 1
+```
+
+```{r}
+2 ^ 2
+```
+
+```{r}
+2 ** 2
+```
+
+```{r}
+sqrt(4)
+```
+
+## operators precedence
+
+```{r}
+100-25/3
+```
+
+```{r}
+(100-25)/3
+```
+
+
+```{r}
+(100-25)/2+1
+```
+
+## More comples operators
+
+```{r}
+log(4)
+```
+
+```{r}
+exp(log(4))
+```
+
+
+```{r}
+round(1/3)
+```
+
+## Comparison
+
+```{r}
+1 == 1
+```
+
+```{r}
+log(6) >= 4
+```
+
+```{r}
+1 != 2
+```
+
+```{r}
+!(1 != 2)
+```
+
+```{r}
+2^3<=sqrt(36)
+```
+
+## Other Operators
+
+- `>` Greater thanI
+- `>=` Greater than or equal to 
+- `<` Less than
+- `<=` Less than or equal to
+- `==` Equal. Do not confuse `==` and `=`  !
+- `!=` Not equal
+- `&&` and
+- `|` or
+
+# Fundumentals
+
+## Assigment
+
+```{r}
+a <- 5 ## common way, USE THAT approach
+a
+```
+
+```{r}
+a = 5
+a
+```
+
+```{r}
+5 -> a
+a
+```
+
+## Complex assigments
+
+```{r}
+b <- 1 + 2
+b
+```
+
+```{r}
+b <- b + a
+b
+```
+
+## Built-in Functions 
+
+```{r}
+sum(1, 2, 2, 3)
+```
+
+```{r}
+example <- sum(1, 2)
+example
+```
+
+```{r}
+example <- sum(1, log(2)) / 2
+example
+```
