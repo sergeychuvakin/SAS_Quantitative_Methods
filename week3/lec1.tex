@@ -359,10 +359,114 @@ Range is the difference between the smallest and the largest observation in the 
 \begin{itemize}
 	\item Variance is the average of all squared deviations from the mean:
 	$$\sigma^2 = \frac{\sum^{n}_{i=1} (x_i - \mu(X))^2}{n}$$
- 	\item The larger this value, the greater the dispersion of theobservations around the mean value, the more heterogeneous sample (the less informative mean).
+ 	\item The larger this value, the greater the dispersion of the observations around the mean value, the more heterogeneous sample (the less informative mean).
  	\item The standard deviation (denoted as $\sigma$ or $s$) is the square root of the variance
 \end{itemize}
 \end{frame}	
+
+
+\section{Variable types}
+\subsection{list}
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+
+	\begin{enumerate}
+		\item \tikz\draw[red,fill=red] (0,0) circle (.5ex); continious $(-\infty:+\infty)$
+		\item \tikz\draw[blue,fill=blue] (0,0) circle (.5ex); nominal (colors)
+		\item \tikz\draw[green,fill=green] (0,0) circle (.5ex); ordered (ranks in the army)
+	\end{enumerate}
+
+	
+\end{frame}
+
+\subsection{ Examples}
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	\tikz\draw[red,fill=red] (0,0) circle (.5ex); Continious:
+	\begin{enumerate}
+		\item Age of person
+		\item Salaries in a company
+	\end{enumerate}
+	\tikz\draw[blue,fill=blue] (0,0) circle (.5ex); Nominal:
+	\begin{enumerate}
+		\item Religion of person
+		\item Prefered candidate at elections
+		\item Gender
+	\end{enumerate}
+
+	\tikz\draw[green,fill=green] (0,0) circle (.5ex); Ordered: 
+	\begin{enumerate}
+		\item Number of smoked sigaretes 
+		\item Number of children in a family 
+	\end{enumerate}
+	
+\end{frame}
+
+\subsection{Notions}
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	\tikz\draw[red,fill=red] (0,0) circle (.5ex); Continious - takes any real number - it can be normally distributed or somehow else. 
+	
+	\vspace{1cm}
+	
+	\tikz\draw[blue,fill=blue] (0,0) circle (.5ex); Nominal - always descrete. The only thing can be done upon this - count unique values.  The values \emph{can not be} compared!  
+
+	\vspace{1cm}
+	
+	\tikz\draw[green,fill=green] (0,0) circle (.5ex); Ordered - unlike nominal scal it can be compared, but we do not know the granularity of difference. Descrete as well!
+
+\end{frame}
+
+
+\section{Population and  Sample}
+\subsection{Formula}
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+\textbf{Popuation} - theoretical measure of your object of research.  
+
+\vspace{1cm}
+
+\textbf{Sample} - Real number of observations
+
+\vspace{1cm}
+
+\textbf{Representetivness} - How sample reflects quality of population 
+
+\end{frame}	
+
+\section{Important Laws}
+
+\subsection{Law of large numbers}
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	The law of large numbers, in probability and statistics, states that as a sample size grows, its mean gets closer to the average of the whole population
+	
+\end{frame}	
+
+
+
+\subsection{Central Limit Theorem}
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	The central limit theorem states that if you have a population with mean $\mu$ and standard deviation $\sigma$and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distribute
+	
+\end{frame}	
+
+
+
 
 %TODO: sample, population, types of variables 
 
