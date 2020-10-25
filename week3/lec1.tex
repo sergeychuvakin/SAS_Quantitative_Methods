@@ -1,0 +1,370 @@
+
+\documentclass[t, 11pt]{beamer}
+\pdfmapfile{+sansmathaccent.map}
+%%% Работа с русским языком
+\usepackage{cmap}				
+\usepackage{mathtext} 				
+\usepackage[T2A]{fontenc}		
+\usepackage[utf8]{inputenc}			
+\usepackage[russian, english]{babel}	
+
+\usetheme{Montpellier}
+\usecolortheme{beaver} % Цветовая схема
+
+
+
+%%% Работа с картинками
+\usepackage{graphicx}
+
+\usepackage{csquotes}
+
+\hypersetup{				
+	colorlinks=true,       	
+	linkcolor=blue,          
+	citecolor=black,       
+	filecolor=magenta,      
+	urlcolor=red           
+}
+%% табличка
+\usepackage{booktabs, caption, makecell}
+\usepackage{threeparttable}
+
+%% график нормального распределения 
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+
+%% доп символы
+\usepackage{newunicodechar}
+
+\newcommand\Warning{%
+	\makebox[1.4em][c]{%
+		\makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+		\makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+\newunicodechar{⚠}{\Warning}
+
+\title {Key statistical concepts}
+\subtitle{}
+\author{Chuvakin Sergey}
+\date{\today}
+\institute[<<Anthropology>>]{<<School of Advanced Studies>>}
+
+\begin{document}
+
+	
+	\frame[plain]{\titlepage}		
+	
+	\section{Outline}
+	
+		\begin{frame} 
+			\frametitle{\insertsection} 
+			\begin{itemize}
+				\item Random variable
+				\item Distribution
+				\item Distribution types
+				\item Central measures
+				\item Dispersion 
+				\item Standart deviation 
+				\item Types of variables 
+				\item Population
+				\item Sample
+				\item law of large numbers (maybe)
+				\item central limit theorem (maybe)
+			\end{itemize}
+		\end{frame}
+	
+	\section{Random Variable}
+		\subsection{Definition}
+
+	\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+	Variable - \textbf{\emph{varying}} values. 
+		
+	\textbf{RV} - aka  random quantity, aleatory variable, or stochastic variable - is a variable whose value is unknown or a function that assigns values to each of an experiment's outcomes.
+	
+	\vspace{1cm}
+	
+	\emph{Examples:} - tips for waiter, number of people in a line, number of insects under a bed and a lot of other examples. The idea that it's unlimited number. Everything potetntilaly could be a random variable. 
+	\end{frame}
+	
+	
+	\section{Distribution}
+	\subsection{Definition}
+		\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+		In statistics, a probability distribution is a mathematical description of a random variable in terms of the probabilities of it's particular possible values.
+		
+		\vspace{1cm}
+		
+		 Put it simpler - distribution - possible values of random variable. 
+		 
+		 \vspace{1cm}
+		 
+		NB: It's a function, therefore there are input and output.
+	\end{frame}
+	
+	\subsection{Types}
+	\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+		
+		\href{https://seeing-theory.brown.edu/probability-distributions}{Tap here!} - interactive types of various distributions! 
+		
+		\vspace{1cm}
+		
+		Let us see it together! 
+		
+		What worth noticing: 
+		\begin{enumerate}
+		\item it can be descrite and continious
+		\item each has extra parameters 
+		\item shape varies
+		\item some combinations of parameters of different distributions looks alike!  
+	 \end{enumerate}
+	\end{frame}
+
+	\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	Exercise - try to guess the following! 
+	
+	\begin{enumerate}
+		\item meaning of (at least some of) parameters
+		\item difference between descrete and continious 
+		\item what is probability mass (density) function (PDF) $f(x)$
+		\item what if cumulative distribution function (CDF) $F(x)$
+	\end{enumerate}
+
+	\vspace{1cm}
+	
+	Do not be upset if not all of above is clear!  The more important is to grasp intuition...
+
+\end{frame}
+
+
+	\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+	
+	\section{Normal distribution}
+	\subsection{Plot}
+	\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+		\begin{center}
+		\begin{tikzpicture}
+			
+			\begin{axis}[no markers, domain=0:10, samples=100,
+				axis lines*=left, xlabel=$X$, ylabel=axis $y$,
+				height=6cm, width=10cm,
+				xticklabels={Test A,$99\%$,$95\%$,$68\%$, $\mu$, $\sigma$,$2\sigma$,$3\sigma$}, ytick=\empty,
+				enlargelimits=false, clip=false, axis on top,
+				grid = major]
+				\addplot [fill=cyan!20, draw=none, domain=-3:3] {gauss(0,1)} \closedcycle;
+				\addplot [fill=orange!20, draw=none, domain=-3:-2] {gauss(0,1)} \closedcycle;
+				\addplot [fill=orange!20, draw=none, domain=2:3] {gauss(0,1)} \closedcycle;
+				\addplot [fill=blue!20, draw=none, domain=-2:-1] {gauss(0,1)} \closedcycle;
+				\addplot [fill=blue!20, draw=none, domain=1:2] {gauss(0,1)} \closedcycle;
+			\end{axis}
+		\end{tikzpicture}
+		
+	\end{center}
+	
+	\end{frame}
+
+	\subsection{Fomula}
+	\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+		$$P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}$$
+		\begin{itemize}
+			\item $P(x)$ aka $y$
+			\item $\sigma$ - standart deviation
+			\item $\mu$ - mean aka Expected value $E(x)$
+			\item $e$ - e number (2.7\texttildelow)
+			\item $\pi$ Pi number (3.14\texttildelow)
+			\item $x$ - value from random variable
+			\end{itemize}
+		
+	\vspace{0.5cm}
+	
+	\emph{Intuition behind - probability of $x$ assumed it distributed normally.} 
+	\end{frame}
+
+	\section{Back to variables}
+	\subsection{Examples in sociology and anthropology}
+	\begin{frame} 
+		\frametitle{\insertsection} 
+		\framesubtitle{\insertsubsection}
+	RV - frequently used as quality (or feature) of person or some phenomena. 
+	
+	Examples of pseudo normal distribution:
+	
+	\begin{itemize}
+		\item Age 
+		\item Heigh
+		\item Salary 
+		\item Number of robberies in a country 
+		\item Number of votes  during elections
+		\item Number of cigarettes smoked
+		%item Favorite color 
+		%\item Gender
+		%\item Race
+	\end{itemize}
+	
+	
+	\end{frame}
+	
+\section{Formal Statistics}
+\subsection{central tendency}
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Mean
+		\item Mode
+		\item Median
+	\end{itemize}
+
+%U+2757
+\Warning  In trully normal distrubution Mean  $\simeq$  Mode $\simeq$  Median
+	
+\end{frame}	
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	The mean of a distribution is the arithmetic mean, or the <<average>>
+	
+	$${\displaystyle A={\frac {1}{n}}\sum _{i=1}^{n}a_{i}={\frac {a_{1}+a_{2}+\cdots +a_{n}}{n}}}$$
+	
+	$$\mu(X) = \frac{\sum_{i=1}^{n}x^{i}}{n}$$
+
+
+	
+\end{frame}	
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	The median is the value separating the higher half of sample,a population, or a probability distribution, from the lower half.
+	\begin{enumerate}
+	\item The median is the “middle” value of a [ordered] data set.
+	\item Let there be a variable v1: 20,7,23,17,21,5,19,3,11 
+	\item To compute the median of v1, sort the variable into ascending order: 3,5,7,11,17,19,20,21,23
+	\item Pick one in center (17)
+	\end{enumerate}
+	
+	\end{frame}	
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+	The mode is the value that appears most often in a set of data
+	\begin{enumerate}
+	\item Consider data 2,5,7,6,7,9,2,0,5,3,3,7,7,8.
+	\item The mode is 7
+	\item What about 3,7,4,2,3,1,0,7,9,6,3,7,4,11?
+	\item The mode of a continuous probability distribution is the value x at which its probability density function has its maximum value
+	\item The mode is at the peak of the distribution
+	\end{enumerate}
+	
+\end{frame}	
+
+\pgfmathdeclarefunction{gauss1}{3}{\pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*#3^2))}}
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	\begin{center}
+\begin{tikzpicture}
+	
+	\begin{axis}[
+		no markers
+		, domain=-7.5:25.5
+		, samples=100
+		, ymin=0
+		, axis lines*=left
+		, xlabel=
+		, every axis y label/.style={at=(current axis.above origin),anchor=south}
+		, every axis x label/.style={at=(current axis.right of origin),anchor=west}
+		, height=5cm
+		, width=13cm
+		, xtick=\empty
+		, ytick=\empty
+		, enlargelimits=false
+		, clip=false
+		, axis on top
+		, grid = major
+		, hide y axis
+		, hide x axis
+		]
+		
+		
+		
+		%\draw [help lines] (axis cs:-3.5, -0.4) grid (axis cs:3.5, 0.5);
+		
+		% Normal Distribution 1
+		\addplot[blue, ultra thick,restrict x to domain=-6:6] {gauss1(x, 0, 1.75)};
+		\pgfmathsetmacro\valueA{gauss1(0, 0, 1.75)}
+		\draw [dashed, thick, blue] (axis cs:0, 0) -- (axis cs:0, \valueA);
+		\node[below] at (axis cs:0, -0.02)  {\Large \textcolor{blue}{$\mu_{1}$}};
+		\draw[thick, blue] (axis cs:-0.0, -0.01) -- (axis cs:0.0, 0.01);
+		
+		% Normal Distribution 2
+		\addplot[green, ultra thick,restrict x to domain=3:15] {gauss1(x, 9, 1.75)};
+		\draw [dashed, thick, green] (axis cs:9, 0) -- (axis cs:9, \valueA);
+		\node[below] at (axis cs:9, -0.02)  {\Large \textcolor{green}{$\mu_{2}$}};
+		\draw[thick, green] (axis cs:9, -0.01) -- (axis cs:9, 0.01);
+		
+		% Normal Distribution 3
+		\addplot[red, ultra thick,restrict x to domain=12:24] {gauss1(x, 18, 1.75)};
+		\draw [dashed, thick, red] (axis cs:18, 0) -- (axis cs:18, \valueA);
+		\node[below] at (axis cs:18, -0.02)  {\Large \textcolor{red}{$\mu_{3}$}};
+		\draw[thick, red] (axis cs:18, -0.01) -- (axis cs:18, 0.01);
+		
+	\end{axis}
+	
+	
+\end{tikzpicture}
+	\end{center}
+\end{frame}	
+
+
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+	
+\Warning 1 Guess why median is more representative one?
+
+\vspace{1cm}
+
+\Warning 2 What is the synonym for representative? 
+	
+\end{frame}	
+
+\section{Dispersion and std}
+\subsection{Formula}
+\begin{frame} 
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection}
+Range is the difference between the smallest and the largest observation in the sample.	
+
+\begin{itemize}
+	\item Variance is the average of all squared deviations from the mean:
+	$$\sigma^2 = \frac{\sum^{n}_{i=1} (x_i - \mu(X))^2}{n}$$
+ 	\item The larger this value, the greater the dispersion of theobservations around the mean value, the more heterogeneous sample (the less informative mean).
+ 	\item The standard deviation (denoted as $\sigma$ or $s$) is the square root of the variance
+\end{itemize}
+\end{frame}	
+
+%TODO: sample, population, types of variables 
+
+\end{document}
+	
