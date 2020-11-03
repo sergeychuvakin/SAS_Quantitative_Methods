@@ -1,0 +1,118 @@
+---
+title: "DPLYR practice"
+author: "Sergey Chuvakin"
+date: "11/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+#  Dplyr Practice
+
+DPLYR - stands for d (data.frames) ply (apply) R (language), pronounced as D[di]-ply[plī]-R[a:r]. It's a library for data transformations. It has one rival - data.table. Dplyr slower than dplyr, but has easier syntax. Basically it just a set of VERBS that describes what shoould be done with data. 
+
+Pipe - special symbol %>% essential part of dplyr, that facilitate dplyr usage. it's quite intuitive meaning: thing from left side of the sign becomes input of thing in right side of sign. If some function on the right side takes several inputs, thing on the left side becomes first according documentation. Let's look at the examples. 
+
+For those who are interested how it works formally: https://www.datacamp.com/community/tutorials/pipe-r-tutorial
+
+```{r data}
+## install packages if you do not have it 
+# install.packages('nycflights13')
+# install.packages('dplyr')
+library(dplyr)
+
+df <- nycflights13::flights
+
+head(df)
+
+## BUT! it also can be written in following semantic:
+df %>% head()
+## Note that we do not need to write df second time in as first argument
+```
+
+```{r}
+?nycflights13::flights
+
+## all the variables here
+df %>% glimpse
+```
+
+```{r}
+dim(df)
+```
+
+DPLYR - it's just a tool that facilitate data work. All the things can be done here, can be done in multiple other ways. 
+
+```{r}
+## Filter 
+
+## classic way 
+df[df['month'] == 1, ] %>% dim
+```
+
+```{r}
+dim(filter(df, month == 1)) ### or 
+
+df %>% 
+  filter(month == 1) %>% 
+  dim
+```
+```{r}
+df %>% 
+  arrange(flight)
+```
+```{r}
+df %>% 
+  arrange(desc(flight))
+```
+
+```{r}
+df %>% 
+  select(dep_delay, day, month)
+```
+
+```{r}
+
+## can be used for column creation, but also for column modification
+df %>% 
+  mutate(my_column = 1)
+
+
+df %>% 
+  mutate(day = day + 1)
+```
+
+
+
+```{r}
+
+## Grouping 
+df %>% 
+  group_by(month ) %>% 
+  summarise(n = n(), d_mean = mean(day), d_std = sd(day))
+```
+
+
+

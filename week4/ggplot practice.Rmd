@@ -1,0 +1,157 @@
+---
+title: "ggplot basics"
+author: "Sergey Chuvakin"
+date: "11/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## GGPLOT
+
+ggplot2 - one of the most popular frameworks for data visialzation in R. It has similar semmantics to dplyr, but instead of pipes it uses pluses. Though ggplot it's the only framework that uses "+" for chain creation. 
+
+Name - common reading. “Grammar”, “Graphics”, “Plot”.
+
+```{r}
+# install readxl if needed
+library(readxl)
+fev <- read_excel("fev.xls", 
+                  sheet = "tidy_data", 
+                  col_names = TRUE, 
+                  na = "NA", 
+                  skip = 1 )
+```
+
+fev - source [http://www.statsci.org/data/general/fev.html]
+Research on lungs
+Age
+FEV - forced expiratory volume (lungs size)
+Height 
+Sex
+Smoker - smokes or not
+
+```{r}
+head(fev)
+```
+```{r}
+dim(fev)
+```
+
+Everything starts from ggplot function, and aes inside. AES stands for aestetics. It's core part of ggplot which is responsible for axes. But aes itself shows nothing - it's technical info for ggplot. Literally it creates just layout. 
+
+```{r}
+library(ggplot2)
+
+ggplot(data = fev, aes(x = Age, y = FEV))
+```
+Now we can add things on this layout. Let us put here point. Namely scatterplot. 
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + geom_point()
+```
+All the changes are recorded via plus sign. For example let's change theme. 
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point() + 
+  theme_bw()
+```
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point() + 
+  theme_classic()
+```
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point() + 
+  theme_minimal()
+```
+
+let's change axes names. labs object responsible for that
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size")
+```
+what about title?
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+# theme(plot.title = element_text(hjust = 0.5))
+```
+
+point size?
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point(size = 5) + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+```
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point(size = 0.3) + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+```
+
+More sophisticated change
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV)) + 
+  geom_point(shape = 22, color = "red", fill = "yellow", size = 2) + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+```
+Let's group point by color 
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV, color = Sex)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+
+```
+
+What you see here?
+Does it more meaningful for you?
+
+Let's add new information about smoking.
+
+```{r}
+ggplot(data = fev, aes(x = Age, y = FEV, color = Sex, shape = Smoker)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency')
+
+```
+
+Not better at all. 
+
+let's facet it!
+
+```{r}
+ggplot(data = fev %>% na.omit, aes(x = Age, y = FEV, color = Sex)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency') + 
+  facet_wrap(~Smoker)
+```
+
+```{r}
+ggplot(data = fev %>% na.omit, aes(x = Age, y = FEV, color = Sex, shape = Smoker)) + 
+  geom_point() + 
+  theme_minimal() + 
+  labs(x = "MY AGE", y = "Lungs size", title = 'age-lungs size dependency') + 
+  facet_grid(Sex~Smoker)
+```
+
+## HOME READING http://www.cookbook-r.com/Graphs/

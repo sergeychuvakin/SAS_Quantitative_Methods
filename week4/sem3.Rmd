@@ -1,0 +1,45 @@
+---
+title: "PRACTICE!!"
+author: "Sergey Chuvakin"
+date: "11/4/2020"
+output: html_document
+---
+
+## Dplyr
+
+Read tha data IQ_brain.csv. 
+
+It's real research was taken here: “The Data and Story Library” http://lib.stat.cmu.edu/DASL/
+
+Description:
+
+20 men and 20 women were studied. Data contains some phisical data, three types of IQ tests and size of brain (MRINACount). 
+
+Answer the following questions. 
+1) How many rows and columns here?
+2) What the columns here? 
+3) How many missings here. (HINT: is.na gives TRUE)
+4) Show the 5 smartest people according one the test (pick random one)
+5) Create one more dataset, where will be gender of person, one IQ test and size of the brain
+6) Whose brain larger in average? Man or Woman?
+7) Whose IQ is higher above men and women?
+8) Do you think it's dependent variables?
+9) Show the woman with largest brain
+10) Show the man with the highest IQ
+
+```{r}
+#### YOUR CODE HERE
+```
+
+
+## GGPLOT
+
+Use the same data and make following plots 
+
+1) Histogram of all IQ test faceted by gender.
+2) scatter plot of some IQ test versus MRINACount. colored and faceted by gender
+3) Line plot Height vs Brain size faceted and colored by gender
+
+```{r}
+#### YOUR CODE HERE
+```
