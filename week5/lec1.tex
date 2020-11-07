@@ -1,0 +1,80 @@
+
+\documentclass[t, 11pt]{beamer}
+\pdfmapfile{+sansmathaccent.map}
+%%% Работа с русским языком
+\usepackage{cmap}				
+\usepackage{mathtext} 				
+\usepackage[T2A]{fontenc}		
+\usepackage[utf8]{inputenc}			
+\usepackage[russian, english]{babel}	
+
+\usetheme{Montpellier}
+\usecolortheme{beaver} % Цветовая схема
+
+
+
+%%% Работа с картинками
+\usepackage{graphicx}
+
+\usepackage{csquotes}
+
+\hypersetup{				
+	colorlinks=true,       	
+	linkcolor=blue,          
+	citecolor=black,       
+	filecolor=magenta,      
+	urlcolor=red           
+}
+%% табличка
+\usepackage{booktabs, caption, makecell}
+\usepackage{threeparttable}
+
+%% график нормального распределения 
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+
+%% доп символы
+\usepackage{newunicodechar}
+
+\newcommand\Warning{%
+	\makebox[1.4em][c]{%
+		\makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+		\makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+\newunicodechar{⚠}{\Warning}
+
+\title {Statistical tests}
+\subtitle{Start of Statistical Inference}
+\author{Chuvakin Sergey}
+\date{\today}
+\institute[<<Anthropology>>]{<<School of Advanced Studies>>}
+
+\begin{document}
+
+	
+	\frame[plain]{\titlepage}		
+	
+	\section{Outline}
+	
+		\begin{frame} 
+			\frametitle{\insertsection} 
+			\begin{itemize}
+				\item Why do we need it?
+				\item Statistical inference
+				\item Hypothesis (what about sample?)
+				\item Type of errors
+				\item Box-plot explanation
+				\item Compare two means 
+				\item T-test
+				\item Dependent and Independent samples
+				\item Variance check
+				\item Normallity check 
+			\end{itemize}
+		\end{frame}
+	
+	\section{Why we need it??}
+
+
+\end{document}
