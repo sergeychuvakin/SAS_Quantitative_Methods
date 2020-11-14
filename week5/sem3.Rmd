@@ -1,0 +1,227 @@
+---
+title: "sem3"
+author: "Sergey Chuvakin"
+date: "11/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Intro to Inferential statistics
+
+## What the first of data analysis?
+
+```{r packages}
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r Data_obtainment}
+## do not forget to check default paths
+getwd()
+setwd('/Users/serge/Desktop/SAS_QM/SAS_Quantitative_Methods/week5')
+df <- read.csv('insurance 2.csv')
+```
+
+## What next?
+
+```{r}
+head(df)
+```
+## Let's create questions to answer them using t-test and ANOVA
+
+1) ...
+2) ...
+3) ...
+
+```{r}
+dim(df)
+```
+```{r}
+names(df)
+```
+
+
+```{r}
+hist(df$age)
+```
+
+```{r}
+#hist(df$sex, freq = T)
+df %>% 
+  ggplot(aes(sex)) + geom_bar()
+```
+```{r}
+df %>% 
+  ggplot(aes(bmi)) + geom_histogram(bins = 50)
+```
+What else you want to explore?....
+
+## Box plots
+
+```{r}
+df %>% ggplot(aes(x = bmi)) + geom_boxplot()
+```
+```{r}
+summary(df$bmi)
+```
+
+
+```{r}
+df %>% ggplot(aes(x = bmi, y = sex, color = sex)) + geom_boxplot()
+```
+
+```{r}
+df %>% ggplot(aes(x = bmi, y = sex, color = smoker)) + geom_boxplot()
+```
+
+
+## sometimes it's hopeless
+
+```{r}
+df %>% ggplot(aes(x = children, y = smoker )) + geom_boxplot()
+```
+```{r}
+
+## NOTE: typical poisson distribution 
+df %>% 
+  ggplot(aes(x = children)) + geom_histogram(bins = 15)
+```
+
+```{r}
+df %>% ggplot(aes(x = charges, y = sex, color = sex)) + geom_boxplot()
+```
+```{r}
+df %>% ggplot(aes(x = charges, y = sex, color = smoker)) + geom_boxplot()
+```
+
+Interesting!
+
+Let's check it usign statistics
+
+## Tests
+ - binom test 
+ - t-test
+ - ANOVA
+ - correlation
+ 
+### Binom test
+Statistical measure for testing that vector have certain probability if success.
+
+H0 - distribution matches set probability
+H1 - distribution diverge set probability
+
+p-value <= 0.05 we can reject HO, we cannot reject H1
+
+```{r}
+NUMBER_OF_SUC <- 1
+NUMBER_OF_TRIALS <- 10
+DESIRED_PROBABILTY <- 0.5 #### (from 0 to 1)
+
+
+binom.test(NUMBER_OF_SUC, NUMBER_OF_TRIALS, DESIRED_PROBABILTY)
+```
+
+### T-test
+
+Statistical measure for testing if means of two vector significantly different.
+
+H0 - Two mean are not really different 
+H1 - Two mean are different 
+
+p-value <= 0.05 we can reject HO, we cannot reject H1
+
+```{r}
+?t.test
+a <- rnorm(100, mean = 10, sd = 10)
+b <- rnorm(100, mean = 10, sd = 10)
+
+t.test(a, b)
+```
+
+Let's try real example!!
+
+```{r}
+## Easy way to write formula
+t.test(df$bmi ~ df$sex) 
+```
+
+How it works? Let's replicate it.
+
+```{r}
+a <- df %>% 
+  filter(sex == 'male') %>% 
+  pull(bmi)
+
+b <- df %>% 
+  filter(sex == 'female') %>% 
+  pull(bmi)
+
+t.test(a, b)
+```
+
+Absolutely the same. 
+
+Let's check out H1 about smokers and insurance wastes!
+
+NB: check:
+1) are vectors dependent?
+2) distribution of target variable
+3) check homogeneity of variances (?var.test)
+
+```{r}
+### Our code here 
+```
+
+
+### ANOVA
+
+Why do we need it? Guess we to check H1 about region influence? 
+
+What Analysis Of Variance is? 
+
+Statistical measure for testing if means of two or more (sic!) vector significantly different.
+
+H0 - Means are not really different 
+H1 - Means are different 
+
+p-value <= 0.05 we can reject HO, we cannot reject H1
+
+```{r}
+anova(df$charges~df$region)
+```
+
+
+### Chi-square 
+
+Statistical measure for testing if means of two or more (sic!) vector significantly different.
+
+H0 - Distribution in matrix is uniform 
+H1 - Distribution in matrix is NOT (!sic) uniform 
+
+```{r}
+df %>% 
+  tidyr::pivot_wider(id_cols = smoker, # what would be in rows
+                     names_from = sex, # what columns would be split
+                     values_from = charges, # what values will be filled
+                     values_fn = mean) # what function will applied
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
