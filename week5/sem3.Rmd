@@ -212,6 +212,19 @@ df %>%
 
 
 
+### Correlations
+
+Do not returns p-value! It's just a measure just to detect alike vectors. 
+
+Value should be above 0.6 if sample is big, but it could be less in small samples. 
+
+Note! Very important! Matrix can be changed if you add here highly correlrated vector - probably some correlation would vanish, while some won't. 
+
+```{r}
+df %>% 
+  select(is.numeric) %>% 
+  cor 
+```
 
 
 
