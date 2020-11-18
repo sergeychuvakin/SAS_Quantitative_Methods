@@ -191,7 +191,7 @@ H1 - Means are different
 p-value <= 0.05 we can reject HO, we cannot reject H1
 
 ```{r}
-anova(df$charges~df$region)
+aov(df$charges~df$region)
 ```
 
 
