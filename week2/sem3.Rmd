@@ -59,7 +59,7 @@ Use the elementary arithmetic operators +, -, *, /, and ^ to:
 ### Your code here
 ```
 
-6) Write a function to culculate this equation
+6) Write a function to calculate this equation
 $$n = \frac{ln(\frac{i}{\frac{M}{P} -i} + 1)}{ln(1 + i)}$$
 ```{r}
 mortgage_rate <- function(M, P, i) {

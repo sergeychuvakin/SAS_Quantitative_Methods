@@ -9,7 +9,7 @@
 
 
 
-  <meta name="date" content="2020-10-18" />
+  <meta name="date" content="2020-11-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3121,7 +3121,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">2020-10-18</p>
+            <p style="margin-top: 6px; margin-left: -2px;">2020-11-25</p>
           </hgroup>
   </slide>
 
@@ -3461,6 +3461,15 @@ l$string ## call by name, type string</pre>
 
 <pre >## [1] &quot;A&quot;</pre>
 
+</article></slide><slide class=""><hgroup><h2>factors</h2></hgroup><article  id="factors">
+
+<pre class = 'prettyprint lang-r'>vec &lt;- rep(c(&#39;Male&#39;, &#39;Female&#39;), 100)
+fac_vec &lt;- as.factor(vec)</pre>
+
+<pre class = 'prettyprint lang-r'>levels(fac_vec)</pre>
+
+<pre >## [1] &quot;Female&quot; &quot;Male&quot;</pre>
+
 </article></slide><slide class=""><hgroup><h2>&ldquo;Handmade&rdquo; functions</h2></hgroup><article  id="handmade-functions">
 
 <pre class = 'prettyprint lang-r'>my_foo &lt;- function() {
@@ -3529,9 +3538,7 @@ l$string ## call by name, type string</pre>
 <li>strings in R</li>
 <li>apply, sapply, lapply</li>
 <li>Name spaces in R</li>
-</ul>
-
-<h5>TODO: function, loops, built in finctions, arrays, vectors, list, matrices, data.frames, strings</h5></article></slide>
+</ul></article></slide>
 
 
   <slide class="backdrop"></slide>
