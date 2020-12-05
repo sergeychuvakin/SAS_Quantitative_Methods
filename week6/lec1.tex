@@ -117,8 +117,91 @@
 	\begin{equation}
 		 \hat{y} = \beta X + \hat{\epsilon}
 	\end{equation} 
+	More common representation: 
+	\begin{equation}
+	\hat{y} =\beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + ... + \beta_nx_n + \hat{\epsilon}
+	\end{equation} 
 
 \end{frame}		
 
+\section{Intuition behind}
 
-\end{document}
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	
+	\begin{center}
+		\includegraphics{DiamondPrices}
+	\end{center}
+
+\end{frame}		
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	
+	\begin{center}
+		\includegraphics[scale=0.3]{lin1}
+	\end{center}
+	
+\end{frame}	
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	What if we have smth like this?
+	\begin{center}
+		\includegraphics[scale=0.3]{nonlin1}
+	\end{center}
+	
+\end{frame}	
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	
+	Once we decided that our data can be fitted by line model, let's select $\beta$ coefs. Let's follow \href{http://jalammar.github.io/visual-interactive-guide-basics-neural-networks/}{here}.
+	
+\end{frame}	
+
+\section{Estimators}
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	Estimation method (aka LOSS functions) - equation that help to find coefs. The most common techniques:
+	\begin{itemize}
+		\item OLS: $\beta = \Sigma(\hat{y} - y)^2 \rightarrow min$
+		\item MLE: $\theta = P(X|\theta) \rightarrow max$
+		\item Other purpose specified (Ridge, Quantile, PLS, Bayes Models)
+		\end{itemize}
+	
+\end{frame}	
+
+
+
+\subsection{When and what}
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	What should I use for my model?
+	\begin{itemize}
+		\item OLS (and ols related): only continious variables
+		\item MLE (and lme related): all other varaibles ()
+		\item MCMC (and MC ralated): Bayes modeling 
+	\end{itemize}
+	
+\end{frame}	
+
+\section{How it works inside}
+	
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	
+	
+\end{frame}	
+
+
+\end{document} 

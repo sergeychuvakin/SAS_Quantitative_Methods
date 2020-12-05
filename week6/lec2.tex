@@ -1,0 +1,77 @@
+
+\documentclass[t, 11pt]{beamer}
+%\pdfmapfile{+sansmathaccent.map}
+%%% Работа с русским языком
+\usepackage{cmap}				
+\usepackage{mathtext} 				
+\usepackage[T2A]{fontenc}		
+\usepackage[utf8]{inputenc}			
+\usepackage[russian, english]{babel}	
+
+\usetheme{Montpellier}
+\usecolortheme{beaver} % Цветовая схема
+
+
+
+%%% Работа с картинками
+\usepackage{graphicx}
+
+\usepackage{csquotes}
+
+\hypersetup{				
+	colorlinks=true,       	
+	linkcolor=blue,          
+	citecolor=black,       
+	filecolor=magenta,      
+	urlcolor=red           
+}
+%% табличка
+\usepackage{booktabs, caption, makecell}
+\usepackage{threeparttable}
+
+%% график нормального распределения 
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+
+%% доп символы
+\usepackage{newunicodechar}
+
+\newcommand\Warning{%
+	\makebox[1.4em][c]{%
+		\makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+		\makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+%\newunicodechar{⚠}{\Warning}
+
+\title {Regression properties}
+\subtitle{what do we need know about}
+\author{Chuvakin Sergey}
+\date{\today}
+\institute[<<Anthropology and Sociology major>>]{<<School of Advanced Studies>>}
+
+\begin{document}
+
+	
+	\frame[plain]{\titlepage}		
+	
+	\section{Outline}
+	
+		\begin{frame} 
+			\frametitle{\insertsection} 
+			\begin{itemize}
+				\item Significance
+				\item Regression output (table)
+				\item Regression plot
+				\item Standart Error
+				\item Degrees of Freedom
+				\item T-value
+				\item P-value
+				\item Confindence Intervals (both of coefs and predictions)
+			\end{itemize}
+\end{frame}
+	
+
+
+\end{document}
