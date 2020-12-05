@@ -188,8 +188,7 @@
 	What should I use for my model?
 	\begin{itemize}
 		\item OLS (and ols related): only continious variables
-		\item MLE (and lme related): all other varaibles ()
-		\item MCMC (and MC ralated): Bayes modeling 
+		\item MLE (and mle related): all other varaibles 
 	\end{itemize}
 	
 \end{frame}	
@@ -199,6 +198,30 @@
 \begin{frame}
 	\frametitle{\insertsection} 
 	\framesubtitle{\insertsubsection} 
+	
+	\begin{itemize}
+		\item Analytical solution $\beta = (X^TX)^{-1}X^Ty$
+		\item (Stochastic) Gradient Descent (related variations)
+		\item MCMC (for Bayes equations)
+	\end{itemize}
+	
+	
+\end{frame}	
+
+\section{Gauss-Markov Assumptions}
+
+\begin{frame}
+	\frametitle{\insertsection} 
+	\framesubtitle{\insertsubsection} 
+	
+	\begin{itemize}
+		\item Linearity of data
+		\item Sample should be \emph{randomly} selected for population
+		\item X matrix should not be correlated within
+		\item X marrix should not be correlated with error
+		\item Variance of error should be constant
+	\end{itemize}
+
 	
 	
 \end{frame}	
