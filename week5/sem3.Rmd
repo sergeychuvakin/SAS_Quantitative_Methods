@@ -33,9 +33,9 @@ head(df)
 ```
 ## Let's create questions to answer them using t-test and ANOVA
 
-1) ...
-2) ...
-3) ...
+1) Smoker vs Children ()
+2) Smoker vs Charges (x)
+3) Smoker vs Bmi ()
 
 ```{r}
 dim(df)
@@ -46,18 +46,31 @@ names(df)
 
 
 ```{r}
-hist(df$age)
+df %>% 
+  ggplot(aes(x = charges, y = bmi, color = smoker)) + 
+  geom_point() 
 ```
 
 ```{r}
-#hist(df$sex, freq = T)
 df %>% 
-  ggplot(aes(sex)) + geom_bar()
+  ggplot(aes(bmi)) + geom_histogram(bins = 100)
 ```
 ```{r}
 df %>% 
   ggplot(aes(bmi)) + geom_histogram(bins = 50)
 ```
+
+```{r}
+df2 <- df %>% 
+  select(smoker, bmi, children, charges)
+
+summary(df2)
+```
+```{r}
+df2$smoker %>% table()
+```
+
+
 What else you want to explore?....
 
 ## Box plots
@@ -67,6 +80,14 @@ df %>% ggplot(aes(x = bmi)) + geom_boxplot()
 ```
 ```{r}
 summary(df$bmi)
+```
+
+```{r}
+df %>% ggplot(aes(x = children, y = smoker)) + geom_boxplot()
+```
+
+```{r}
+df %>% ggplot(aes(x = bmi, y = smoker)) + geom_boxplot()
 ```
 
 
@@ -92,7 +113,8 @@ df %>%
 ```
 
 ```{r}
-df %>% ggplot(aes(x = charges, y = sex, color = sex)) + geom_boxplot()
+df %>% ggplot(aes(x = charges, y = sex, color = smoker)) +
+  geom_boxplot() 
 ```
 ```{r}
 df %>% ggplot(aes(x = charges, y = sex, color = smoker)) + geom_boxplot()

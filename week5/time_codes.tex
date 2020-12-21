@@ -1,0 +1,78 @@
+\documentclass[a4paper,14pt]{article}
+%pdflatex
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[russian, english]{babel}	
+\usepackage{indentfirst}
+\frenchspacing
+
+\usepackage{epigraph}
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+%математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+\usepackage{extsizes} % Возможность сделать экстрашрифт
+\usepackage{geometry} 
+\geometry{top=30mm}
+\geometry{bottom=40mm}
+\geometry{left=30mm}
+\geometry{right=20mm}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+	unicode=true,           % русские буквы в раздела PDF
+	pdftitle={Заголовок},   % Заголовок
+	pdfauthor={Автор},      % Автор
+	pdfsubject={Тема},      % Тема
+	pdfcreator={Создатель}, % Создатель
+	pdfproducer={Производитель}, % Производитель
+	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+	linkcolor=black,          % внутренние ссылки
+	citecolor=Maroon,        % на библиографию
+	filecolor=magenta,      % на файлы
+	urlcolor=blue           % на URL
+}
+\title{Time codes for lection}
+%\author{Chuvakin S.}
+\date{\today}
+
+\let\endtitlepage\relax % убрать pagebreak после titlepage
+\usepackage{enumitem} % цветные itemize (xcolor)
+\setcounter{secnumdepth}{0} % убрать нумерацию секций
+
+\usepackage{csquotes}
+\usepackage[style=authoryear, maxcitenames=2, backend=biber, sorting=nty, bibencoding=utf8]{biblatex}
+\addbibresource{li.bib}
+%
+
+
+
+\begin{document}
+		
+\maketitle
+
+	\begin{itemize}
+		\item 12.30 - 12.40 Read the data
+		\item 12.40 - 12.50 Create research questions
+		\item 12.50 - 13.00 Exploratary Data Analysis (EDA)
+		\item 13.00 - 13.10 Box-plots and Summary 
+		\item 13.10 - 13.20 Binom-test
+		\item 13.20 - 13.30 T-test and Anova
+		\item 13.30 - 13.40 Chi-square
+		\item 13.40 - 13. 50 Correlations
+		\item 
+	\end{itemize}
+
+\end{document}

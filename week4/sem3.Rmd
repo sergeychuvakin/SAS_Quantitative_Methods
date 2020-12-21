@@ -42,4 +42,9 @@ Use the same data and make following plots
 
 ```{r}
 #### YOUR CODE HERE
+
+library(ggplot2)
+library(dplyr)
+
+read.csv('IQ_brain.csv')
 ```

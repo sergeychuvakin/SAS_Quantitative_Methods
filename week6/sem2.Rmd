@@ -1,0 +1,40 @@
+---
+title: "sem2"
+author: "Sergey Chuvakin"
+date: "11/13/2020"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+df <- diamonds
+```
+
+```{r}
+glimpse(df)
+```
+```{r}
+df %>% 
+  ggplot(aes(x = carat, y = price, color = color)) + 
+  geom_point()
+```
+
+```{r}
+lm(data = df, price ~ carat) %>% summary
+```
+
+```{r}
+df %>% 
+  ggplot(aes(x = carat, y = price)) + 
+  geom_point() + 
+  stat_smooth(method = lm)
+```
+
+```{r}
+df %>% 
+  ggplot(aes(x = carat, y = log(price), color = clarity)) + 
+  geom_point()
+```
+
