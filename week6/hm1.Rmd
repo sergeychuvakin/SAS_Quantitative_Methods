@@ -23,7 +23,7 @@ This dataset contains house sale prices for King County, which includes Seattle.
 ## TASK
 
 1) Main question what affect on price?
-2) You should use ANOVA, t-test, Chi-squared and regression
+2) You should use ANOVA, t-test, Chi-squared and regression. (Even for answering other questions)
 3) Visualize the variable, use box-plots.
 4) Make inference 
 5) Work will be assessed by:

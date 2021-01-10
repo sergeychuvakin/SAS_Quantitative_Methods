@@ -1,0 +1,32 @@
+---
+title: "sem1"
+author: "Sergey Chuvakin"
+date:  `r Sys.Date()`
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+df <- diamonds
+```
+
+```{r}
+# base model
+ols <- lm(data = df, price ~ carat + depth)
+```
+
+# multicolleniarity
+```{r}
+cor(df$carat, df$depth)
+```
+
+```{r}
+lmtest::vif(ols)
+```
+# Linear dependency 
+
+# Homoscedasticity
+
+# Endogeneity

@@ -15,6 +15,11 @@ df <- read.csv('winequality-red.csv')
 ```{r}
 df %>% head
 ```
+```{r}
+df %>% pull(quality) %>% unique
+```
+
+
 About 
 
 Context
@@ -77,9 +82,10 @@ P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. Modeling wine preferen
 
 
 ## Task 
+
 1) what variables affect on quality 
 2) Visualize all the variables you need
 3) Make inference 
-4) You can se any methods we disccussed
+4) You can use any methods we discussed
 
 
