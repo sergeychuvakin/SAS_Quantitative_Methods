@@ -21,12 +21,38 @@ ols <- lm(data = df, price ~ carat + depth)
 ```{r}
 cor(df$carat, df$depth)
 ```
+```{r}
+car::vif(ols) # <4 good
+```
+
+# Linear dependency 
+```{r}
+df %>% ggplot(aes(x = price, y = carat^2)) +
+  geom_point()
+```
 
 ```{r}
-lmtest::vif(ols)
+df %>% ggplot(aes(x = price, y = depth)) +
+  geom_point()
 ```
-# Linear dependency 
 
 # Homoscedasticity
+- Upper- and bottom-left: heteroskedasticity 
+- Upper-right: normality of errors
+- Bottom-right: influential observations
 
-# Endogeneity
+```{r}
+par(mfrow=c(2,2))
+plot(ols)
+```
+```{r}
+lmtest::bptest(ols)
+```
+
+
+# Endogenity
+```{r}
+AER::ivreg(data = df, price ~ depth | cut) %>% 
+  summary(diagnostics=TRUE)
+```
+
