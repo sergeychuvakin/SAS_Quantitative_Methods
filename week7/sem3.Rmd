@@ -13,6 +13,11 @@ df <- titanic::titanic_train
 ```
 
 ```{r}
+glimpse(df)
+```
+
+## Titanic
+```{r}
 # base model
 logit <- glm(data = df, Survived ~ Sex + Pclass, family = "binomial")
 ```
@@ -20,7 +25,94 @@ logit <- glm(data = df, Survived ~ Sex + Pclass, family = "binomial")
 ```{r}
 summary(logit)
 ```
+
 ```{r}
 logit %>% coef %>% exp
 ```
+
+## Cocain Price Prediction
+
+```{r}
+df <- read.csv('dream_market_cocaine_listings.csv')
+```
+
+```{r}
+glimpse(df)
+```
+
+```{r}
+df %>% ggplot(aes(x = ships_from)) +
+  geom_histogram(stat = 'count')
+```
+
+
+```{r}
+df %>% ggplot(aes(x = cost_per_gram)) +
+  geom_histogram() + 
+  xlim(c(0, 0.07))
+```
+
+```{r}
+df %>% mutate(new_price = if_else(cost_per_gram > 0.03, 1, 0)) %>% 
+  ggplot(aes(x = new_price)) + geom_histogram()
+```
+# Compare two prices
+
+```{r}
+df <- 
+  df %>% 
+    mutate(new_price = dplyr::if_else(cost_per_gram > 0.03, 1, 0)) %>% 
+    mutate(new_price_pure = dplyr::if_else(cost_per_gram_pure > 0.03, 1, 0))
+
+glimpse(df)
+```
+```{r}
+m1 <- glm(cost_per_gram_pure ~  rating + successful_transactions + escrow, 
+          data = df, 
+          family = gaussian())
+```
+
+```{r}
+m2 <- glm(new_price ~ quality + rating + successful_transactions + escrow, 
+          data = df, 
+          family = binomial())
+```
+
+```{r}
+m1 %>% summary
+```
+```{r}
+m2 %>% summary
+```
+
+```{r}
+df_model <- df[df[['successful_transactions']]< 500,]
+
+m3 <- glm(new_price_pure ~  rating + successful_transactions + escrow + ships_from, 
+          data = df_model, 
+          family = binomial()) 
+m3 %>% summary
+
+m3 %>% coef %>% exp
+
+m4 <- glm(cost_per_gram_pure ~  rating + successful_transactions + escrow + ships_from, 
+          data = df_model, 
+          family = gaussian()) 
+m4 %>% summary
+```
+
+
+```{r}
+df %>% dplyr::select(rating, successful_transactions, escrow) %>% cor
+```
+
+- Upper- and bottom-left: heteroskedasticity 
+- Upper-right: normality of errors
+- Bottom-right: influential observations
+
+```{r}
+par(mfrow=c(2,2))
+plot(m3)
+```
+
 

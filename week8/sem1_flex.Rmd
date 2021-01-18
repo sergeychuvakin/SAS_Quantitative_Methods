@@ -1,0 +1,204 @@
+---
+title: "FlexDashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+runtime: shiny
+---
+
+# Page 1
+
+## Column 1 {.tabset}
+
+### Outline
+
+```{r include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+
+df <- titanic::titanic_train
+```
+
+- historgram
+- line plot
+- scatterplot
+- 3D plot
+- boxplot 
+- map
+- flexdashboard
+
+### Glimpse on data
+
+```{r}
+glimpse(df)
+```
+
+### Basic Hist
+
+```{r}
+plotly::plot_ly(x = df$Pclass, 
+                type = 'histogram', 
+                histnorm = "probability")
+```
+
+### Horizontal Hist
+
+```{r}
+plotly::plot_ly(y = df$Pclass, 
+                type = 'histogram', 
+                histnorm = "probability")
+```
+
+### Double Hist
+
+
+```{r}
+plotly::plot_ly(y = df$Pclass, 
+                type = 'histogram', 
+                histnorm = "probability",
+                name = 'my_name_0') %>% 
+  add_trace(type = 'histogram',
+            y = df$Survived,
+            bingroup = 1, 
+            name = 'my_name_1', 
+            opacity = 0.5)
+```
+See for more information: https://plotly.com/r/histograms/
+
+### Bokeh Hist
+
+```{r}
+library(rbokeh)
+rbokeh::renderRbokeh({
+  df <- titanic::titanic_train
+  figure(width = 500, height = 300) %>% 
+    ly_hist(Pclass, data = df, breaks = 40, freq = FALSE)
+  })
+```
+
+### Basic Line Plot
+```{r include=F}
+setwd('/Users/serge/Desktop/SAS_QM/SAS_Quantitative_Methods/week8/')
+
+climate <- read.csv('DailyDelhiClimateTrain.csv')
+```
+
+```{r include=F}
+glimpse(climate)
+```
+
+```{r}
+plotly::plot_ly(climate, x = ~date, y = ~meantemp, type = 'scatter', mode = 'lines')
+```
+
+### Double Line
+
+```{r}
+plotly::plot_ly(climate, x = ~date, y = ~meantemp, type = 'scatter', mode = 'lines') %>% 
+  add_trace(y = ~humidity, name = 'humidity', mode = 'markers') %>% 
+  add_trace(y = ~wind_speed, name = 'wind_speed', mode = 'lines')
+```
+
+### Bokeh Line Plot
+
+```{r}
+library(rbokeh)
+rbokeh::renderRbokeh({
+  figure(width = 500, height = 300) %>%
+    ly_lines(data = climate, x = date, y = meantemp, color = 'blue') %>% 
+    ly_lines(data = climate, x = date, y = humidity, color = 'red')
+  })
+```
+
+### Basic Scatter Plot
+
+```{r}
+plot_ly(data = climate, 
+        x = ~humidity, 
+        y = ~meantemp)
+        # marker = list(size = 10,
+        #               color = 'rgba(255, 182, 193, .9)',
+        #               line = list(color = 'rgba(152, 0, 0, .8)',
+        #                           width = 2)))
+```
+
+### Bokeh Scatter
+
+```{r}
+library(rbokeh)
+rbokeh::renderRbokeh({
+  figure(width = 500, height = 300) %>%
+    ly_points(data = climate, 
+              x = humidity, 
+              y = meantemp, 
+              color = 'blue', 
+              hover = humidity)
+})
+```
+
+### 3D Plot
+
+```{r}
+plot_ly(climate, 
+        x = ~humidity, 
+        y = ~meantemp, 
+        z = ~wind_speed)
+```
+
+### Basic BoxPlots
+
+```{r}
+plot_ly(y = ~df$Fare, type = "box")
+```
+
+### Double BoxPlots
+
+```{r}
+plot_ly(y = ~df$Fare, type = "box") %>% 
+  add_trace(y = ~df$Age, type = "box")
+```
+
+### Advanced BoxPlot
+
+```{r}
+plot_ly(y = ~df$Fare, 
+        type = "box",
+        boxpoints = "all",
+        jitter = 0.3, 
+        pointpos = -1.8) 
+```
+See more here https://plotly.com/r/box-plots/
+
+### Bokeh BoxPlot
+```{r}
+library(rbokeh)
+rbokeh::renderRbokeh({
+  figure(ylab = "Height (inches)", 
+         width = 500, 
+         height = 300) %>%
+    ly_boxplot(humidity, data = climate) # second argument specifies facet
+})
+```
+
+See more here https://rdrr.io/cran/rbokeh/man/ly_boxplot.html
+
+### Maps
+
+```{r include=F}
+df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv")
+head(df)
+```
+
+```{r}
+plotly::renderPlotly(
+plot_ly(df,
+        type='choropleth', 
+        locations=df$CODE, 
+        z=df$GDP..BILLIONS., 
+        text=df$COUNTRY, 
+        colorscale="Reds")
+)
+```
+For more info see here: https://plotly.com/r/maps/
+
